@@ -8,8 +8,27 @@ import MarketplacePage from './MarketPlacePage'; // Corrected import path
 import ThreeDShowroom from './ThreeDShowroom';
 import OrdersPage from './OrdersPage';
 
+// Import Firebase modules
+import { initializeApp } from 'firebase/app';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+
+// Firebase configuration (replace with your actual config)
+const firebaseConfig = {
+  apiKey: "AIzaSyCFPlNrFjbercNPc4u7IXG2vv5PNVHpmYg",
+  authDomain: "e-marketing-platform-a02d1.firebaseapp.com",
+  projectId: "e-marketing-platform-a02d1",
+  storageBucket: "e-marketing-platform-a02d1.firebasestorage.app",
+  messagingSenderId: "962648754227",
+  appId: "1:962648754227:web:8f9c0393726024942a3b46",
+  measurementId: "G-RCSS7KNMRT"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
 // Header Component: Handles navigation and active link highlighting.
-const Header = ({ onNavigate, currentPage }) => {
+const Header = ({ onNavigate, currentPage, user }) => {
     const navLinksRef = useRef([]); // Ref to store navigation link DOM elements
 
     // Effect to handle scroll-based active link highlighting for the 'home' page sections.
@@ -113,6 +132,12 @@ const Header = ({ onNavigate, currentPage }) => {
                         Discovery
                     </button>
                 </div>
+                 {/* Display user info or login button */}
+                 {user ? (
+                    <span className="text-gray-700">Welcome, {user.email}</span>
+                ) : (
+                    <button className="text-blue-500" onClick={() => alert('Implement Login')}>Login</button>
+                )}
             </nav>
         </header>
     );
@@ -416,6 +441,8 @@ const App = () => {
     const [currentPage, setCurrentPage] = useState('home');
     // State to pass initial product data to the 3D showroom when navigating from a product card.
     const [initialProductData, setInitialProductData] = useState({});
+    // State to hold the current user
+    const [user, setUser] = useState(null);
 
     // Function to handle navigation between different pages/sections.
     const handleNavigate = (page, data = null) => {
@@ -445,6 +472,22 @@ const App = () => {
              }, 100);
         }
     };
+
+    // Use effect to listen for auth state changes
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // User is signed in
+                setUser(user);
+            } else {
+                // User is signed out
+                setUser(null);
+            }
+        });
+
+        // Cleanup subscription on unmount
+        return () => unsubscribe();
+    }, []);
 
     return (
         <div className="antialiased">
@@ -506,8 +549,8 @@ const App = () => {
                 `}
             </style>
 
-            {/* Render Header, passing navigation function and current page */}
-            <Header onNavigate={handleNavigate} currentPage={currentPage} />
+            {/* Render Header, passing navigation function, current page, and user */}
+            <Header onNavigate={handleNavigate} currentPage={currentPage} user={user}/>
             <main>
                 {/* Conditional rendering based on currentPage state */}
                 {currentPage === 'home' ? (
