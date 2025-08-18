@@ -1,0 +1,302 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Headphones",
+    "category": "Electronics",
+    "price": "$249",
+    "img": "https://images.unsplash.com/photo-1637780852590-8ab27248ec41?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d2lyZWxlc3MlMjBoZWFkcGhvbmVzfGVufDB8fDB8fHww",
+    "description": "Immersive sound experience with active noise cancellation.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id": "4e902017e4624547b440da0a6658a689"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Smart Watch X1",
+    "category": "Electronics",
+    "price": "$199",
+    "img": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "description": "Track your fitness, notifications, and more on the go.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id": "765c09acb5bc4892be94bb3b37d12000"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Espresso Machine",
+    "category": "Home Goods",
+    "price": "$389",
+    "img": "https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "description": "Craft barista-quality coffee at home with ease.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id": "e8d0c03ae32d46718c86d3aec00e042a"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Classic Leather Jacket",
+    "category": "Fashion",
+    "price": "$350",
+    "img": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "description": "Timeless style and premium comfort for any occasion.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id":"63234c0d8da0448abb80411478068fb0"
+        }
+  },
+  {
+    "id": 5,
+    "name": "Couch Sofa",
+    "category": "Home Goods",
+    "price": "$750",
+    "img": "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "description": "A comfortable and stylish sofa for your living room.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id": "4c21287f43c24e91a79f983dab90f771"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Corvus Accent Chair",
+    "category": "Home Goods",
+    "price": "$450",
+    "img": "https://images.unsplash.com/photo-1634718337577-07e3665518fa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGNvcnZ1cyUyMGNoYWlyfGVufDB8fDB8fHww",
+    "description": "A mid-century modern accent chair, perfect for any living space.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id": "1fded5bd02c94164abc39c98640050d6"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Robotic Vacuum Cleaner",
+    "category": "Home Goods",
+    "price": "$299",
+    "img": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "description": "Effortlessly clean your home with smart navigation.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id":"7230d8d80e8b4a82b4a34a5e7926d0d3"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Running Sneakers Pro",
+    "category": "Fashion",
+    "price": "$120",
+    "img": "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "description": "Lightweight and responsive for peak athletic performance.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id":"a43a376af23b4f2ca7b67e16dda4f9a0"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Portable Bluetooth Speaker",
+    "category": "Electronics",
+    "price": "$75",
+    "img": "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "description": "Powerful sound in a compact, durable design.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id":"512ebaddf2aa4e93ab3cc1ab49aa8b3e"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Ergonomic Office Chair",
+    "category": "Home Goods",
+    "price": "$220",
+    "img": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "description": "Designed for ultimate comfort and support during long hours.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id": null
+    }
+  },
+  {
+    "id": 11,
+    "name": "Designer Handbag",
+    "category": "Fashion",
+    "price": "$480",
+    "img": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "description": "Sophisticated accessory for the modern individual.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id": null
+    }
+  },
+  {
+    "id": 12,
+    "name": "4K Smart TV",
+    "category": "Electronics",
+    "price": "$799",
+    "img": "https://images.unsplash.com/photo-1577979749830-f1d742b96791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "description": "Stunning visuals and smart features for immersive entertainment.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id": null
+    }
+  },
+  {
+    "id": 13,
+    "name": "Weighted Blanket",
+    "category": "Home Goods",
+    "price": "$65",
+    "img": "https://plus.unsplash.com/premium_photo-1719017276550-d238a18d4175?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHdlaWdodGVkJTIwYmxhbmtldHxlbnwwfHwwfHx8MA%3D%3D",
+    "description": "Promotes relaxation and better sleep.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id": null
+    }
+  },
+  {
+    "id": 14,
+    "name": "Denim Jeans Slim Fit",
+    "category": "Fashion",
+    "price": "$95",
+    "img": "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "description": "Comfortable and stylish for everyday wear.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id": null
+    }
+  },
+  {
+    "id": 15,
+    "name": "Leather Wallet",
+    "category": "Fashion",
+    "price": "$75",
+    "img": "https://plus.unsplash.com/premium_photo-1681589452811-513d1952077c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGxlYXRoZXIlMjB3YWxsZXR8ZW58MHx8MHx8fDA%3D",
+    "description": "A stylish and durable leather wallet.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id": null
+    }
+  },
+  {
+    "id": 16,
+    "name": "Toaster Oven",
+    "category": "Home Goods",
+    "price": "$120",
+    "img": "https://media.istockphoto.com/id/1365458839/photo/baking-cookies-in-a-toaster-oven.webp?a=1&b=1&s=612x612&w=0&k=20&c=Nji-fHb1_rsUu5VuPSyfA76S1z8NAYzErrUp_DEhz-I=",
+    "description": "Versatile toaster oven for your kitchen needs.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id": null
+    }
+  },
+  {
+    "id": 17,
+    "name": "Gaming Mouse",
+    "category": "Electronics",
+    "price": "$50",
+    "img": "https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z2FtaW5nJTIwbW91c2V8ZW58MHx8MHx8fDA%3D",
+    "description": "High-precision gaming mouse for ultimate control.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id": null
+    }
+  },
+  {
+    "id": 18,
+    "name": "Wool Scarf",
+    "category": "Fashion",
+    "price": "$40",
+    "img": "https://images.unsplash.com/photo-1609803384069-19f3e5a70e75?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHdvb2wlMjBzY2FyZnxlbnwwfHwwfHx8MA%3D%3D",
+    "description": "Warm and cozy wool scarf for winter.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id": null
+    }
+  },
+  {
+    "id": 19,
+    "name": "Blender",
+    "category": "Home Goods",
+    "price": "$80",
+    "img": "https://images.unsplash.com/photo-1585237672814-8f85a8118bf6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmxlbmRlcnxlbnwwfHwwfHx8MA%3D%3D",
+    "description": "Powerful blender for smoothies and more.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id": null
+    }
+  },
+  {
+    "id": 20,
+    "name": "Mechanical Keyboard",
+    "category": "Electronics",
+    "price": "$110",
+    "img": "https://images.unsplash.com/photo-1602025882379-e01cf08baa51?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWVjaGFuaWNhbCUyMGtleWJvYXJkfGVufDB8fDB8fHww",
+    "description": "Responsive mechanical keyboard for typing and gaming.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id": null
+    }
+  },
+  {
+    "id": 21,
+    "name": "Ceramic Coffee Mug Set",
+    "category": "Home Goods",
+    "price": "$30",
+    "img": "https://images.unsplash.com/photo-1619172372777-11aa99616171?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNvZmZlZSUyMG11Z3xlbnwwfHwwfHx8MA%3D%3D",
+    "description": "Elegant ceramic mugs for your daily coffee.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id": null
+    }
+  },
+  {
+    "id": 22,
+    "name": "Running Shoes",
+    "category": "Fashion",
+    "price": "$85",
+    "img": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHJ1bm5pbmclMjBzaG9lc3xlbnwwfHwwfHx8MA%3D%3D",
+    "description": "Comfortable running shoes for your active lifestyle.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id": null
+    }
+  },
+  {
+    "id": 23,
+    "name": "Digital Camera",
+    "category": "Electronics",
+    "price": "$450",
+    "img": "https://images.unsplash.com/photo-1519183071296-a59f100821d9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGRpZ2l0YWwlMjBjYW1lcmF8ZW58MHx8MHx8fDA%3D",
+    "description": "Capture your memories with this high-quality digital camera.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id": null
+    }
+  },
+  {
+    "id": 24,
+    "name": "Backpack",
+    "category": "Fashion",
+    "price": "$60",
+    "img": "https://images.unsplash.com/photo-1556075795-1ca58eab2c5d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGJhY2twYWNrfGVufDB8fDB8fHww",
+    "description": "Durable and stylish backpack for everyday use.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id": null
+    }
+  },
+  {
+    "id": 25,
+    "name": "Smart Thermostat",
+    "category": "Home Goods",
+    "price": "$130",
+    "img": "https://images.unsplash.com/photo-1588345921523-c21cdb7f2a61?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c21hcnQlMjB0aGVybW9zdGF0fGVufDB8fDB8fHww",
+    "description": "Control your home's temperature with this smart thermostat.",
+    "threeDModel": {
+      "type": "sketchfab",
+      "id": null
+    }
+  }
+]
