@@ -4,32 +4,18 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import Chart from 'chart.js/auto';
 
 // Import the individual page components
-import MarketplacePage from './MarketPlacePage'; // Corrected import path
+import MarketplacePage from './MarketPlacePage';
 import ThreeDShowroom from './ThreeDShowroom';
 import OrdersPage from './OrdersPage';
-
-// Import Firebase modules
-import { initializeApp } from 'firebase/app';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
-
-// Firebase configuration (replace with your actual config)
-const firebaseConfig = {
-  apiKey: "AIzaSyCFPlNrFjbercNPc4u7IXG2vv5PNVHpmYg",
-  authDomain: "e-marketing-platform-a02d1.firebaseapp.com",
-  projectId: "e-marketing-platform-a02d1",
-  storageBucket: "e-marketing-platform-a02d1.firebasestorage.app",
-  messagingSenderId: "962648754227",
-  appId: "1:962648754227:web:8f9c0393726024942a3b46",
-  measurementId: "G-RCSS7KNMRT"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+import Login from './Login';
+import SignUp from './register'; // Import the SignUp component
+import { auth } from './firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 
 // Header Component: Handles navigation and active link highlighting.
-const Header = ({ onNavigate, currentPage, user }) => {
+const Header = ({ onNavigate, currentPage, user, onLoginClick, showLogin }) => {
     const navLinksRef = useRef([]); // Ref to store navigation link DOM elements
+    const [isMenuOpen, setIsMenuOpen] = useState(false); // New state for mobile menu
 
     // Effect to handle scroll-based active link highlighting for the 'home' page sections.
     // Also handles highlighting for full-page navigation links.
@@ -89,6 +75,8 @@ const Header = ({ onNavigate, currentPage, user }) => {
         <header className="bg-white/90 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
             <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
                 <h1 className="text-xl font-bold text-gray-800">Platform Evolution Strategy</h1>
+
+                {/* Desktop Menu */}
                 <div className="hidden md:flex space-x-8">
                     {/* Navigation buttons with conditional active classes and data-page attributes */}
                     <button
@@ -133,12 +121,85 @@ const Header = ({ onNavigate, currentPage, user }) => {
                     </button>
                 </div>
                  {/* Display user info or login button */}
-                 {user ? (
-                    <span className="text-gray-700">Welcome, {user.email}</span>
-                ) : (
-                    <button className="text-blue-500" onClick={() => alert('Implement Login')}>Login</button>
-                )}
+                 <div className="flex items-center space-x-4">
+                    {user ? (
+                        <div className="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-blue-500 text-white font-bold text-lg">
+                           {user.email[0].toUpperCase()}
+                        </div>
+                    ) : (
+                        <button className="text-blue-500 hidden md:block" onClick={onLoginClick}>
+                            {showLogin ? 'Close Login' : 'Login'}
+                        </button>
+                    )}
+
+                    {/* Mobile menu toggle button (Hamburger icon) */}
+                    <button className="text-gray-500 md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}></path>
+                        </svg>
+                    </button>
+                 </div>
             </nav>
+
+            {/* Mobile Menu */}
+            <div className={`md:hidden overflow-hidden transition-max-height duration-500 ease-in-out ${isMenuOpen ? 'max-h-screen' : 'max-h-0'}`}>
+                <div className="flex flex-col items-start px-6 py-4 space-y-4">
+                    <button
+                        className="nav-link w-full text-left"
+                        onClick={() => { onNavigate('home'); setIsMenuOpen(false); }}
+                        data-page="home"
+                    >
+                        Home
+                    </button>
+                    <button
+                        className="nav-link w-full text-left"
+                        onClick={() => { onNavigate('marketplace'); setIsMenuOpen(false); }}
+                        data-page="marketplace"
+                    >
+                        Marketplace
+                    </button>
+                    <button
+                        className="nav-link w-full text-left"
+                        onClick={() => { onNavigate('showroom'); setIsMenuOpen(false); }}
+                        data-page="showroom"
+                    >
+                        3D Showroom
+                    </button>
+                    <button
+                        className="nav-link w-full text-left"
+                        onClick={() => { onNavigate('orders-page'); setIsMenuOpen(false); }}
+                        data-page="orders-page"
+                    >
+                        Orders
+                    </button>
+                    <button
+                        className="nav-link w-full text-left"
+                        onClick={() => { onNavigate('home', 'discovery'); setIsMenuOpen(false); }}
+                    >
+                        Discovery
+                    </button>
+                    {user ? (
+                        <div className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500 text-white font-bold text-lg">
+                           {user.email[0].toUpperCase()}
+                        </div>
+                    ) : (
+                        <>
+                            <button
+                                className="nav-link w-full text-left"
+                                onClick={() => { onNavigate('login'); setIsMenuOpen(false); }}
+                            >
+                                Login
+                            </button>
+                            <button
+                                className="nav-link w-full text-left"
+                                onClick={() => { onNavigate('register'); setIsMenuOpen(false); }}
+                            >
+                                Register
+                            </button>
+                        </>
+                    )}
+                </div>
+            </div>
         </header>
     );
 };
@@ -437,23 +498,25 @@ const Footer = () => (
 // Main App Component: Manages the overall application state and routing between pages.
 const App = () => {
     // State to manage the currently displayed page.
-    // Possible values: 'home', 'marketplace', 'showroom', 'orders-page'.
+    // Possible values: 'home', 'marketplace', 'showroom', 'orders-page', 'login', 'register'.
     const [currentPage, setCurrentPage] = useState('home');
     // State to pass initial product data to the 3D showroom when navigating from a product card.
-    const [initialProductData, setInitialProductData] = useState({});
+    const [initialProductData, setCurrentProductData] = useState({});
     // State to hold the current user
     const [user, setUser] = useState(null);
+    const [showLogin, setShowLogin] = useState(false);
 
     // Function to handle navigation between different pages/sections.
     const handleNavigate = (page, data = null) => {
         setCurrentPage(page); // Update the current page state.
+        setShowLogin(false); // Hide the login/register form when navigating
 
         // If navigating to the showroom with specific product data, set it.
         if (page === 'showroom' && data) {
-            setInitialProductData(data);
+            setCurrentProductData(data);
         } else {
             // Otherwise, clear any previous product data.
-            setInitialProductData({});
+            setCurrentProductData({});
         }
 
         // Scroll logic:
@@ -473,12 +536,27 @@ const App = () => {
         }
     };
 
+    const handleLoginClick = () => {
+        // Toggle the visibility of the login form
+        setShowLogin(!showLogin);
+        // If the login form is shown, set currentPage to 'login'
+        if (!showLogin) {
+            setCurrentPage('login');
+        } else {
+            // Otherwise, return to the last page or home
+            setCurrentPage('home'); 
+        }
+    };
+
     // Use effect to listen for auth state changes
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 // User is signed in
                 setUser(user);
+                // After successful login, hide the login/register form and navigate home
+                setShowLogin(false);
+                setCurrentPage('home');
             } else {
                 // User is signed out
                 setUser(null);
@@ -488,6 +566,51 @@ const App = () => {
         // Cleanup subscription on unmount
         return () => unsubscribe();
     }, []);
+
+    const renderContent = () => {
+        // RENDER CONTENT
+        // If the login form is being shown, render only the Login or SignUp components
+        if (showLogin) {
+            if (currentPage === 'login') {
+                return <Login onNavigate={handleNavigate} />;
+            } else if (currentPage === 'register') {
+                return <SignUp onNavigate={handleNavigate} />;
+            }
+        }
+        
+        // Otherwise, render the main application pages
+        switch (currentPage) {
+            case 'home':
+                return (
+                    <div id="home-page-content">
+                        <IntroSection />
+                        <MarketplaceSection onNavigate={handleNavigate} />
+                        <ShowroomSection />
+                        <DiscoverySection />
+                    </div>
+                );
+            case 'marketplace':
+                return <MarketplacePage onNavigate={handleNavigate} />;
+            case 'showroom':
+                return <ThreeDShowroom onNavigate={handleNavigate} initialProductData={initialProductData} />;
+            case 'orders-page':
+                return <OrdersPage onNavigate={handleNavigate} />;
+            case 'login':
+                return <Login onNavigate={handleNavigate} />;
+            case 'register':
+                return <SignUp onNavigate={handleNavigate} />;
+            default:
+                // Default to home page if currentPage is not recognized
+                return (
+                    <div id="home-page-content">
+                        <IntroSection />
+                        <MarketplaceSection onNavigate={handleNavigate} />
+                        <ShowroomSection />
+                        <DiscoverySection />
+                    </div>
+                );
+        }
+    };
 
     return (
         <div className="antialiased">
@@ -550,23 +673,9 @@ const App = () => {
             </style>
 
             {/* Render Header, passing navigation function, current page, and user */}
-            <Header onNavigate={handleNavigate} currentPage={currentPage} user={user}/>
+            <Header onNavigate={handleNavigate} currentPage={currentPage} user={user} onLoginClick={handleLoginClick} showLogin={showLogin}/>
             <main>
-                {/* Conditional rendering based on currentPage state */}
-                {currentPage === 'home' ? (
-                    <div id="home-page-content">
-                        <IntroSection />
-                        <MarketplaceSection onNavigate={handleNavigate} />
-                        <ShowroomSection />
-                        <DiscoverySection />
-                    </div>
-                ) : currentPage === 'marketplace' ? (
-                    <MarketplacePage onNavigate={handleNavigate} />
-                ) : currentPage === 'showroom' ? (
-                    <ThreeDShowroom onNavigate={handleNavigate} initialProductData={initialProductData} />
-                ) : ( // Default case: if currentPage is 'orders-page' or any other unhandled value.
-                    <OrdersPage onNavigate={handleNavigate} />
-                )}
+                {renderContent()}
             </main>
             {/* Render Footer */}
             <Footer />
