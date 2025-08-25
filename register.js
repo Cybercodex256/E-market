@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { auth } from './firebase'; // Import the auth instance
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 
-const SignUp = () => {
+const SignUp = ({ onNavigate }) => { // Accept onNavigate as a prop
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
@@ -19,6 +19,7 @@ const SignUp = () => {
       setSuccess(true);
       setEmail('');
       setPassword('');
+      // Optionally, navigate to login page after a short delay
     } catch (err) {
       console.error('Error creating user:', err.message);
       setError(err.message);
@@ -29,9 +30,19 @@ const SignUp = () => {
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded shadow-md w-96">
         <h2 className="text-2xl font-semibold mb-4 text-center">Sign Up</h2>
-        {success && <p className="text-green-500 text-sm mb-4">Account created successfully! 🎉</p>}
+        {success && (
+          <div className="text-center">
+            <p className="text-green-500 text-sm mb-4">Account created successfully! 🎉</p>
+            <button 
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              onClick={() => onNavigate('login')}
+            >
+              Go to Login
+            </button>
+          </div>
+        )}
         {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={success ? 'hidden' : ''}>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
               Email:
@@ -67,6 +78,16 @@ const SignUp = () => {
             </button>
           </div>
         </form>
+        <div className="mt-4 text-center">
+          <p className="text-gray-600 text-sm">Already have an account? 
+            <button 
+              className="text-blue-500 hover:text-blue-800 ml-1 font-bold focus:outline-none" 
+              onClick={() => onNavigate('login')} // Trigger navigation to the login page
+            >
+              Log In
+            </button>
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -14,7 +14,8 @@ const Login = ({ onNavigate }) => { // Accept onNavigate as a prop
       await signInWithEmailAndPassword(auth, email, password);
       console.log('User logged in successfully!');
       // Redirect to dashboard or desired page
-      alert("login successful")
+      alert("login successful");
+      onNavigate('home'); // Add this line to navigate home after successful login
       
     } catch (err) {
       console.error('Error logging in:', err.message);
