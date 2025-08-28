@@ -1,9 +1,0 @@
-              MarketPlacePage.js file
-//#####create a database with fields of (id name category img and description)
-//### using a generator utility to provide random ids for the prducts in tht database.
-//#### we are going to use mysql2 librarry for database management.
-//#### going to intergrate firebase for proper management of the database 
-
-      ThreeDShowroom.js file
-###Remove 3d object controls.
-###
