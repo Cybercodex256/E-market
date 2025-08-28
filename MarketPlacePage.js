@@ -44,6 +44,12 @@ const MarketplacePage = ({ onNavigate = () => {} }) => {
                             ...data[key]
                         }));
                     }
+                    
+                    // Add a mock 3D model configuration to one of the products for demonstration
+                    // In a real app, this data would come from your Firebase database
+                    
+
+
                     // Set both the allProducts and displayedProducts with the fetched data
                     setAllProducts(productList);
                     setDisplayedProducts(productList);
