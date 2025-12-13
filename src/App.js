@@ -399,8 +399,6 @@ const App = () => {
     const [user, setUser] = useState(null); // New state to hold user object
     const [initialProductData, setInitialProductData] = useState(null); // New state to hold product data for showroom
 
-    // Use a ref for the intro page's IntersectionObserver
-    const introRef = useRef(null);
 
     // This effect listens for Firebase auth state changes.
     useEffect(() => {
