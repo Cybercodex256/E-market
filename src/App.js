@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 //import * as THREE from 'three';
 //import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import Chart from 'chart.js/auto';
 
 // Import the individual page components
 import MarketplacePage from './MarketPlacePage';
