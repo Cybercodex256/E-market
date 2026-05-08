@@ -1,21 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, get } from 'firebase/database';
-
-// Firebase configuration (replace with your actual config)
-const firebaseConfig = {
-  apiKey: "AIzaSyCFPlNrFjbercNPc4u7IXG2vv5PNVHpmYg",
-  authDomain: "e-marketing-platform-a02d1.firebaseapp.com",
-  projectId: "e-marketing-platform-a02d1",
-  storageBucket: "e-marketing-platform-a02d1.firebasestorage.app",
-  messagingSenderId: "962648754227",
-  appId: "1:962648754227:web:8f9c0393726024942a3b46",
-  measurementId: "G-RCSS7KNMRT"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
+import { ref, get, set } from 'firebase/database';
+import { db } from './firebase';
+import productsData from './products.json';
+import { generateRandomId } from './utils';
 
 const MarketplacePage = ({ onNavigate = () => {} }) => {
     // State to hold all products fetched from the database
@@ -45,11 +32,6 @@ const MarketplacePage = ({ onNavigate = () => {} }) => {
                         }));
                     }
                     
-                    // Add a mock 3D model configuration to one of the products for demonstration
-                    // In a real app, this data would come from your Firebase database
-                    
-
-
                     // Set both the allProducts and displayedProducts with the fetched data
                     setAllProducts(productList);
                     setDisplayedProducts(productList);
@@ -59,10 +41,20 @@ const MarketplacePage = ({ onNavigate = () => {} }) => {
                     setCategories(uniqueCategories);
 
                 } else {
-                    console.log("No data available");
-                    setAllProducts([]);
-                    setDisplayedProducts([]);
-                    setCategories(['All']);
+                    console.log("No data available. Populating with initial data...");
+                    const initialProducts = productsData.map(product => ({
+                        ...product,
+                        id: generateRandomId()
+                    }));
+
+                    set(productsRef, initialProducts)
+                        .then(() => {
+                            setAllProducts(initialProducts);
+                            setDisplayedProducts(initialProducts);
+                            const uniqueCategories = ['All', ...new Set(initialProducts.map(p => p.category))];
+                            setCategories(uniqueCategories);
+                        })
+                        .catch(err => console.error("Error populating database:", err));
                 }
             })
             .catch((error) => {

@@ -49,7 +49,7 @@ const ThreeDShowroom = ({ onNavigate, initialProductData }) => {
                                     execution-while-out-of-viewport
                                     execution-while-not-rendered
                                     web-share
-                                    src={`https://sketchfab.com/models/${viewerConfig.id}/embed?autostart=1&ui_controls=1&ui_infos=1&ui_help=1&ui_settings=1&ui_inspector=1&ui_watermark=1&ui_ar=1&ui_annotations=1&ui_animations=1&ui_profiles=1`}
+                                    src={`https://sketchfab.com/models/${viewerConfig.id}/embed?autostart=1&ui_controls=0&ui_infos=1&ui_help=1&ui_settings=1&ui_inspector=1&ui_watermark=1&ui_ar=1&ui_annotations=1&ui_animations=1&ui_profiles=1`}
                                     className="w-full h-full min-h-[400px]"
                                 ></iframe>
                             </div>
