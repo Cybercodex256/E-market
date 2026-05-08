@@ -1,23 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, get, set } from 'firebase/database';
+import { ref, get, set } from 'firebase/database';
+import { db } from './firebase';
 import productsData from './products.json';
 import { generateRandomId } from './utils';
-
-// Firebase configuration (replace with your actual config)
-const firebaseConfig = {
-  apiKey: "AIzaSyCFPlNrFjbercNPc4u7IXG2vv5PNVHpmYg",
-  authDomain: "e-marketing-platform-a02d1.firebaseapp.com",
-  projectId: "e-marketing-platform-a02d1",
-  storageBucket: "e-marketing-platform-a02d1.firebasestorage.app",
-  messagingSenderId: "962648754227",
-  appId: "1:962648754227:web:8f9c0393726024942a3b46",
-  measurementId: "G-RCSS7KNMRT"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
 
 const MarketplacePage = ({ onNavigate = () => {} }) => {
     // State to hold all products fetched from the database
